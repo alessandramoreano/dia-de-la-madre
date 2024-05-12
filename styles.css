@@ -1,0 +1,165 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: #f3f5a3;
+}
+.card {
+  width: 640px;
+  height: 400px;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  perspective: 1200px;
+  transition: 1s;
+}
+.card:hover {
+  transform: rotate(-5deg);
+}
+.card:hover .outside {
+  transform: rotateY(-130deg);
+}
+.outside,
+.inside {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  left: 50.1%;
+}
+.inside {
+  background: linear-gradient(to right, #f5d3ff, #f5d3ff 30%);
+  line-height: 3;
+  padding: 0 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  left: 50%;
+}
+
+
+.outside {
+  transform-style: preserve-3d;
+  z-index: 1;
+  transform-origin: left;
+  transition: 2s;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outside img {
+  width: 90%; /* Reducimos el ancho de la imagen al 90% del contenedor */
+  max-height: 90%; /* Permitimos que la altura se ajuste automáticamente para mantener la relación de aspecto */
+  object-fit: cover; /* Ajusta la imagen para que se ajuste al contenedor manteniendo la relación de aspecto */
+  margin: 0 auto;
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: rotateX(0deg);
+}
+.front {
+    background-color: #f5d3ff;
+}
+.back {
+    transform: rotateY(180deg);
+    background: linear-gradient(to left, #f5d3ff, #f5d3ff 30%);
+}
+
+.heart {
+  position: relative;
+  background-color: #b81848;
+  height: 60px;
+  width: 60px;
+  transform: rotate(-45deg);
+  animation: .8s beat infinite;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  background-color: #b81848;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+}
+  
+  .heart:before {
+    top: -30px;
+    left: 0;
+}
+
+.heart:after {
+    left: 30px;
+    top: 0;
+}
+
+
+
+@keyframes close {
+    0%, 100% {
+        transform: scale(1, .05);
+    }
+    5%, 95% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes beat {
+  0%, 40%, 100% {
+    transform: scale(1) rotate(-45deg);
+  }
+  25%, 60% {
+    transform: scale(1.1) rotate(-45deg);
+  }
+}
+
+.outside p {
+  font-size: 23px;
+  text-transform: uppercase;
+  margin-top: 30px;
+  text-align: center;
+  letter-spacing: 6px;
+  color: #000046;
+}
+
+.outside img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.inside {
+  background: linear-gradient(to right, #e7e7e7, #f5d3ff 30%);
+  line-height: 3;
+  padding: 0 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  left: 50%;
+}
+
+.inside h1 {
+  font-size: 120px;
+  line-height: 120px;
+}
+
+
